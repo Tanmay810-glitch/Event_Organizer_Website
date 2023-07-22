@@ -9,7 +9,7 @@
     box-sizing: border-box;
     text-transform: capitalize;
     outline: none;
-    /* transition: .2s linear; */
+    transition: .2s linear;
     text-decoration: none;
 }
 
@@ -64,6 +64,7 @@ section{
     color: #fff;
     cursor: pointer;
     font-weight: 600;
+    border: none;
 }
 
 .btn:hover{
@@ -283,29 +284,255 @@ section{
 /*gallery section ends*/
 
 /*price section begins*/
-.price{
+.price .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(20rem, 1fr));
+    gap: 1.5rem; 
+}
 
+.price .box-container .box{
+    padding: 2rem 0;
+    background: #333;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.price .box-container .box:hover{
+    transform: scale(1.03);
+}
+
+.price .box-container .box .title{
+    background: var(--main-color);
+    color: #fff;
+    padding: 1.5rem 0;
+    font-size: 2rem;
+}
+
+.price .box-container .box .amount{
+    color: #fff;
+    padding-top: 2rem;
+    font-size: 4rem;
+}
+
+.price .box-container .box ul{
+    list-style-type: none;
+    padding: 1rem 0;
+}
+
+.price .box-container .box ul li{
+    font-size: 1.5rem;
+    color: #eee;
+    padding: 1rem 0;
+}
+
+.price .box-container .box ul li i{
+    color: var(--main-color);
+    padding-right: 0.5rem;
 }
 /*price section ends*/
 
 /*review section begins*/
-.review{
+.review .box{
+    border-radius: 0.5rem;
+    background: #333;
+    padding: 2rem;
+    position: relative;
+    width: 45rem;
+}
 
+.review .box .fa-quote-right{
+    position: absolute;
+    top: 2rem; right: 2rem;
+    color: var(--main-color);
+    font-size: 6rem;
+}
+
+.review .box .user{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.review .box .user img{
+   height: 7rem;
+   width: 7rem; 
+   border-radius: 50%;
+   object-fit: cover;
+}
+
+.review .box .user h3{
+    font-size: 2rem;
+    color: #fff;
+}
+
+.review .box .user span{
+    font-size: 1.5rem;
+    color: #eee;
+}
+
+.review .box p{
+    line-height: 2;
+    color: #eee;
+    padding: 0.5rem 0;
+    font-size: 1.6rem;
 }
 /*review section ends*/
 
 /*contact section begins*/
-.contact{
+.contact form{
+    max-width: 70rem;
+    margin: 1rem auto;
+    text-align: center;
+}
 
+.contact form .inputBox{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .inputBox input, .contact form textarea{
+    width: 100%;
+    background: #333;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 0.7rem 0;
+    font-size: 1.5rem;
+    color: #fff;
+    text-transform: none;
+}
+
+.contact form .inputBox input::placeholder, .contact form textarea::placeholder{
+    color: #eee;
+    text-transform: capitalize;
+}
+
+.contact form .inputBox input:focus, .contact form textarea:focus{
+    background: #444;
+}
+
+.contact form .inputBox input{
+    width: 49%;
+}
+
+.contact form textarea{
+    resize: none;
 }
 /*contact section ends*/
 
 /*footer section begins*/
 .footer{
+    background: #111;
+}
 
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(20rem, 1fr));
+    gap: 1.5rem; 
+}
+
+.footer .box-container .box h3{
+    font-size: 2.5rem;
+    padding: 1rem 0;
+    color: #fff;
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    color: #eee;
+}
+
+.footer .box-container .box a i{
+    padding-right: 0.5rem;
+    color: var(--main-color);
+}
+
+.footer .box-container .box a:hover i{
+    padding-right: 1.5rem;
+    color: #fff;
+}
+
+.footer .credit{
+    text-align: center;
+    border-top: 0.1rem solid #222;
+    color: #fff;
+    padding: 2rem;
+    padding-top: 2.5rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+}
+
+.footer .credit a{
+    color: var(--main-color);
+}
+
+.footer .credit a:hover{
+    text-decoration: underline;
 }
 /*footer section ends*/
 
+
+/*theme-toggler starts*/
+.theme-toggler{
+    position: fixed;
+    top: 10rem; right: -20rem;
+    background: #333;
+    z-index: 1000;
+    width: 20rem;
+    text-align: center;
+}
+
+.theme-toggler.active{
+    right: 0;
+} 
+
+.theme-toggler .toggle-btn{
+    position: absolute;
+    top: 0; left: -5.9rem;
+    padding: 1.3rem 1.5rem;
+    background: #333;
+    cursor: pointer;
+}
+
+.theme-toggler .toggle-btn i{
+    color: #fff;
+    font-size: 3rem;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin{
+    0%{
+        transform: rotate(360deg);
+    }
+}
+
+.theme-toggler h3{
+    color: #fff;
+    padding: 1rem 0;
+    font-size: 2rem;
+}
+
+.theme-toggler .buttons{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.theme-toggler .buttons .theme-btn{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+/*theme-toggler ends*/
 
 /* media queries */
 @media (max-width: 991px){
@@ -366,5 +593,9 @@ section{
 
     .home .home-slider .swiper-slide{
         width: 27rem;
+    }
+
+    .contact form .inputBox input{
+        width: 100%;
     }
 }
